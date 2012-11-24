@@ -1,6 +1,12 @@
 /**
  * @author Admin
  */
+
+var APP = {
+	appId : "113414208819474",
+	url : "http://localhost:3000"
+};
+
 $(document).ready(function() {
 	var appId = "113414208819474";
 	var url = "http://localhost:3000";
@@ -41,15 +47,40 @@ function loginStatus() {
 		if (response.authResponse) {
 			// user has auth'd your app and is logged into Facebook
 			login = true;
-			FB.api('/me/likes', function(me) {
-				if (me) {
-					
-					alert('me ' + JSON.stringify(me));
-				}
-			});
+			console.log('login authenticated !');
+			extractUserInterests();
 		} else {
 			alert('Authentication failed');
 		}
 	});
 
+}
+
+function extractUserInterests() {
+	// get entertainment category user data
+	extractEntertainmentCategory();
+}
+
+function extractEntertainmentCategory() {
+	var fbEntertainmentCategory;
+	var userData = [];
+	$.get(APP.url + '/entertainment', function(result) {
+		fbEntertainmentCategory = result.split(',');
+		console.log('result' + result);
+	});
+	FB.api('/me/likes', function(me) {
+		if (me) {
+			for (var i = 0; i < (me.data).length; i++) {
+				// console.log(me.data[i].category);
+				for (var j = 0; j < fbEntertainmentCategory.length; j++) {
+					if(me.data[i].category == fbEntertainmentCategory[j]) {
+						userData.push(me.data[i].name);
+					}
+				}
+			}
+			$.post(APP.url + '/userEntertainmentData', {userdata : userData}, function() {
+			});
+		    console.log(userData.toString());
+		}
+	});
 }
