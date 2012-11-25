@@ -26,7 +26,6 @@ function load_FB_SDK(appId, url) {
 			js.src = "//connect.facebook.net/en_US/all" + ( debug ? "/debug" : "") + ".js";
 			ref.parentNode.insertBefore(js, ref);
 		}(document, /*debug*/false));
-
 	window.fbAsyncInit = function() {
 		// init the FB JS SDK
 		FB.init({
@@ -53,12 +52,12 @@ function loginStatus() {
 			alert('Authentication failed');
 		}
 	});
-
 }
 
 function extractUserInterests() {
 	// get entertainment category user data
 	extractEntertainmentCategory();
+	
 }
 
 function extractEntertainmentCategory() {
@@ -66,21 +65,27 @@ function extractEntertainmentCategory() {
 	var userData = [];
 	$.get(APP.url + '/entertainment', function(result) {
 		fbEntertainmentCategory = result.split(',');
-		console.log('result' + result);
+		//console.log('result' + result);
 	});
 	FB.api('/me/likes', function(me) {
 		if (me) {
 			for (var i = 0; i < (me.data).length; i++) {
 				// console.log(me.data[i].category);
 				for (var j = 0; j < fbEntertainmentCategory.length; j++) {
-					if(me.data[i].category == fbEntertainmentCategory[j]) {
+					if (me.data[i].category == fbEntertainmentCategory[j]) {
 						userData.push(me.data[i].name);
 					}
 				}
 			}
-			$.post(APP.url + '/userEntertainmentData', {userdata : userData}, function() {
-			});
-		    console.log(userData.toString());
+			getUserRecommendations(userData);
 		}
 	});
+}
+
+
+function getUserRecommendations(userData) {
+	$.post(APP.url + '/getRecommendedArticles', { userdata : userData}, function() { });
+	// for(var i = 0; i < userData.length; i ++) {
+		// console.log(userData[i]);	
+	// }
 }
