@@ -84,7 +84,19 @@ function extractEntertainmentCategory() {
 
 
 function getUserRecommendations(userData) {
-	$.post(APP.url + '/getRecommendedArticles', { userdata : userData}, function() { });
+	$.post(APP.url + '/getRecommendedArticles', { userdata : userData}, function(arrObj) {
+		
+		for(var i = 0; i < 5; i ++) {
+			var docId = arrObj["articleWeights"][i]["key"]; 
+			var k=0;
+			while(docId !== arrObj["articles"][k]["documentID"]) {
+				k++;
+			}  
+			console.log(arrObj["articles"][k]["name"]);
+			console.log(arrObj["articles"][k]["documentID"]);
+		}
+		//console.log(arrObj);
+		 });
 	// for(var i = 0; i < userData.length; i ++) {
 		// console.log(userData[i]);	
 	// }
