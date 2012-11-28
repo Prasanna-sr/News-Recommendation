@@ -1,32 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>home</title>
-  <meta name="description" content="" />
-  <meta name="author" content="Admin" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <script src="js/jquery-1.7.2.min.js"></script>
-  <script src="js/home.js"></script>
-</head>
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>News Recommendations</title>
+		<link rel="stylesheet" href="css/exmp.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		<link href="css/bootstrap.css" rel="stylesheet" media="screen">
 
-<body>
-  <div>
-    <header>
-      <h1>home</h1>
-    </header>
-    <nav>
-      <p><a href="/">Home</a></p>
-      <p><a href="/contact">Contact</a></p>
-    </nav>
+		<style>
+			a {
+				color: red;
+			}
+		</style>
 
-    <div>
-      
-    </div>
+	</head>
+	<body>
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/home.js"></script>
+		<!-- <script type="text/javascript">
+			function urlChange(url) {
+				var site = url;
+				document.getElementById('show').src = site;
+			}
+		</script> -->
+		<header class="top-rounded">
+			<img src="img/Picture1.png" ></img>
+			Face Feed
+		</header>
+		<ul class="thumbnails">
+			<li class="span2">
+				Prasanna <img src="https://si0.twimg.com/profile_images/2409975579/podmanqbgv4ljih044he.jpeg" alt="image not found">
 
-    <footer>
-     <p>&copy; Copyright  by Admin</p>
-    </footer>
-  </div>
-</body>
+		</ul>
+
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span5" id="list1">
+					<h3>Entertainment</h3>
+					Recommended RSS feeds based on your interests
+				</div>
+				<div class="span4">
+
+					<iframe src="" id="iFrame1" width="750px" height="550px"></iframe>
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>
+		<div>
+			
+		<h2>Feeds you may like</h2>	
+		</div>
+		
+		<div class="container-fluid">
+			<div class="row-fluid">
+				
+				<div class="span5" id="list2">
+					
+				</div>
+				<div class="span4">
+
+					<iframe src="" id="iFrame2" width="750px" height="550px"></iframe>
+				</div>
+			</div>
+		</div>
+
+	</body>
+
 </html>

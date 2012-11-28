@@ -1,31 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>Feed Generator</title>
-  <meta name="description" content="" />
-  <meta name="author" content="Admin" />
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <script src="js/jquery-1.7.2.min.js"></script>
-  <script src="js/fb_login.js"></script>
-</head>
-<body>
-  <div id="page-login">
-  	login page
-   <header>
-      <h1>index</h1>
-    </header>
-    <nav>
-      <p><a href="/">Home</a></p>
-      <p><a href="/contact">Contact</a></p>
-    </nav>
+	<head>
+		<meta charset="utf-8">
+		<title>Sign in &middot; News Recommendation</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div> 
-    	<input id="login" type="submit"> 
-    </div>
-    <footer>
-     <p>&copy; Copyright  by Admin</p>
-    </footer>
-  </div> <!-- page-login -->
-</body>
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<style type="text/css">
+		</style>
+		<link href="css/bootstrap-responsive.css" rel="stylesheet">
+
+		<body>
+			<script src="http://code.jquery.com/jquery-latest.js"></script>
+			<script src="js/bootstrap.min.js"></script>
+			<script src="js/fb_login.js"></script>
+			<div class="container">
+				<div id="myCarousel" class="carousel slide" >
+					<div class="carousel-inner" >
+						<div class="item">
+							<center><img src="img/rss.jpg" alt="" >
+							</center>
+
+						</div>
+						<div class="item active">
+							<center>
+								<img src="img/like.jpg" alt="" >
+							</center>
+
+						</div>
+					</div>
+					<a class="left carousel-control" href="#myCarousel" data-slide="prev" data-interval="2000">&lsaquo;</a>
+					<a class="right carousel-control" href="#myCarousel" data-slide="next" data-interval="2000">&rsaquo;</a>
+				</div>
+				<br>
+				<br>
+				<br>
+				<center>
+
+					<h2 class="form-signin-heading" >Please sign in</h2>
+
+					<button  id="login" class="btn btn-large btn-primary" type="submit" >
+						Sign in with Facebook
+					</button>
+
+				</center>
+
+			</div>
+
+		</body>
 </html>
